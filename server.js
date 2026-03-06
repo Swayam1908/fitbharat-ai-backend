@@ -22,6 +22,9 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Routes
+app.use('/api/ai',             require('./routes/ai'));
+app.use('/api/mood',           require('./routes/mood'));
+app.use('/api/health-profile', require('./routes/healthProfile'));
 app.use('/api/auth', authRoutes);
 app.use('/api/workouts', workoutRoutes);
 app.use('/api/nutrition', nutritionRoutes);
@@ -56,7 +59,7 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(MONGO_URI, { family: 4 })
   .then(() => {
     console.log('✅ MongoDB connected successfully');
     app.listen(PORT, () => {
