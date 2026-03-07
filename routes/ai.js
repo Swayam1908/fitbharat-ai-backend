@@ -11,7 +11,7 @@ const HealthProfile = require("../models/HealthProfile");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 // UPDATED: Using v1beta which is required for the Gemini 2.x/3.x series models available on your key
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 // ── Helper: Call Gemini API ──
 const callGemini = async (prompt) => {
